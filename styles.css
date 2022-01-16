@@ -155,6 +155,9 @@ html, body {
     animation: boardpulse 0.25s ease-in-out;
 }
 
+.game.paused .board{
+    animation: boardpause 1.5s infinite ease-in-out;
+}
 
 @keyframes boardpulse {
     20%{transform: scale(0.95);border: rgb(248, 32, 165) 5px solid;opacity: 0.9}
@@ -165,10 +168,9 @@ html, body {
     50%{transform: scale(0.95)}
     75%{transform: scale(1.05)}
 }
-/* @keyframes boardpulse {
-    0% {background: linear-gradient(72deg, #c3c3f5 8.84%, rgba(19, 143, 252, 0.87) 31.12%);}
-    10%{background: linear-gradient(72deg, #d61fee 8.84%, rgba(73, 35, 241, 0.87) 31.12%)}
-    50%{background: linear-gradient(72deg, #ff3277 8.84%, rgba(169, 64, 255, 0.87) 31.12%)}
-    75%{background: linear-gradient(72deg, #7373fa 8.84%, rgba(100, 248, 253, 0.87) 31.12%)}
-    100%{background: linear-gradient(72deg, #b0b0ff 8.84%, rgba(66, 66, 66, 0.87) 31.12%)}
-} */
+
+@keyframes boardpause {
+    25%{transform: scale(0.92)rotate(2deg);}
+    50%{transform: scale(1)rotate(0deg);}
+    75%{transform: scale(0.92)rotate(-2deg);}
+}
