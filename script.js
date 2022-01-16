@@ -50,6 +50,7 @@ const game = {
         document.getElementsByClassName('value')[0].innerText = `SCORE: ${game.score}`
         food.items = [{ top: 5, left: 2 },{ top: 12, left: 10 },{ top: 7, left: 14 }], //UPD: возвращает фруктам стандартное положение
         food.render();
+        game.continue()
         snake.direction = SNAKE_DIRECTION_RIGHT //UPD: возвращает по умолчанию вправо, так как был баг, если змейка при столкновении двигалась вверх или влево
         document.getElementsByClassName('status')[0].innerText = "Игра запущена"
     },
@@ -80,6 +81,8 @@ const game = {
         pauseButton.innerText = 'Продолжить'
         console.log("Игра была поставлена пользователем на паузу")
         document.getElementsByClassName('status')[0].innerText = "Пауза"
+        document.querySelectorAll(".board")[0].classList.toggle("pulse")
+        setTimeout(board.foodFinded, 260);
         }
         /* добавить сюда код */
     },
@@ -470,7 +473,7 @@ const food = {
             }
             for (fruit in food.items) {
                 if (newItem.top == food.items[fruit].top && newItem.left == food.items[fruit].left) {
-                    food.generateItem()
+                    return food.generateItem()
                 }
             }
         food.items.push(newItem);
